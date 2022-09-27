@@ -14,6 +14,6 @@ def GetCoordinateFromQuoter(userQuoter):
     elif userQuoter == 4:
         return("Диапазон координат: x>0 и y<0 .")
     else:
-        return("В системе координат количество четвертей четыре, повторите попытку.")
+        return("Невозможно определить диапазон, так как в системе координат четыре четверти.")
 
 print(GetCoordinateFromQuoter(userQuoter))

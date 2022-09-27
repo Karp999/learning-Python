@@ -6,4 +6,24 @@
 #    x=2; y=4-> 1
 #    x=-34; y=-30 -> 3
 
+userX = int(input("Введите x:"))
+print(userX)
+userY = int(input("Введите y:"))
+print(userY)
+
+def GetQuoterFromCoordinate(userX, userY):
+    if userX>0 and userY>0:
+        return("Точка пересечения координат находится в четверти № 1.")
+    elif userX<0 and userY>0:
+        return("Точка пересечения координат находится в четверти № 2.")
+    elif userX<0 and userY<0:
+        return("Точка пересечения координат находится в четверти № 3.")
+    elif userX>0 and userY<0:
+        return("Точка пересечения координат находится в четверти № 4.")
+    else: 
+        return("Невозможно определить четверть: точки координат не должны равняться 0. ")
+
+print(GetQuoterFromCoordinate(userX, userY))
+
+
 
