@@ -5,7 +5,7 @@
 # 7 -> да
 # 1 -> нет
 
-userNumber = int(input('Введите число от 1 до 7: '))
+userNumber = int(input("Введите число от 1 до 7: "))
 print(userNumber)
 if userNumber == 1:
     print ("Понедельник - рабочий день.")
