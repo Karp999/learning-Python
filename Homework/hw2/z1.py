@@ -19,3 +19,6 @@ def DigitSum(userNum):
 
 print("Сумма цифр введённого числа равняется: ", DigitSum(userNum))
 print()
+
+
+
