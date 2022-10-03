@@ -3,12 +3,19 @@
 # 6782 -> 23
 # 0,56 -> 11
 
-userNum = float(input("Введите число: "))
-print(userNum)
+print()
+userNum = input("Введите число: ")
+# хотела сделать ввод через float, но в функции выдаёт ошибку 'float' object has no attribute 'replace'
 
 def DigitSum(userNum):
     sum = 0
-    i = 1
-    #нужно будет попробовать через while
+    userNum = userNum.replace(",", ".")
+    index = len(userNum) 
+    print(index) # для меня, проверяю количество введённых позиций 
+    for index in userNum:
+        if index != ".":
+            sum += int(index)
+    return(sum)
 
-print ("Сумма цифр введённого числа равняется: " DigitSum)
+print("Сумма цифр введённого числа равняется: ", DigitSum(userNum))
+print()
