@@ -4,6 +4,9 @@
 
 from random import randint
 
+print()
+userNumber = int(input("Введите число N: "))
+
 def Multiplication(userNumber):
     commonList = []
     multiply = 1 #первоначальное значение для последующего умножения
@@ -23,10 +26,10 @@ def Multiplication(userNumber):
 
 
 print()
-userNumber = int(input("Введите число N: "))
-print()
 print("Произведение равняется:", Multiplication(userNumber) )
 
-
+# в этой задаче был ступор, семинар помог подразобраться. Однако, у меня выскакивает ошибка 
+# FileNotFoundError: [Errno 2] No such file or directory: 'file.txt', хотя файл имеется
+# удаляла задачу и заново создавала(файл на месте), ошибка. Пытаюсь решить.
 
 
