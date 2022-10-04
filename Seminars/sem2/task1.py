@@ -9,3 +9,11 @@ some_list = []
 for i in range (0, n):
     some_list.append((-3)**i)
 print(some_list)
+
+"""
+print("Введите число N")
+N = int(input())
+for i in range(1,N):
+    f = (3**i)*((-1)**i)
+    print(f)
+"""

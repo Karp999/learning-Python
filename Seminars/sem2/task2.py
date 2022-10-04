@@ -8,3 +8,16 @@ n = int(input("n = "))
 for i in range(1, n+1):
     some_dict[i] = 3 * i + 1
 print(some_dict)
+
+"""
+print("Введите число N")
+N = int(input())
+#пустой словарь : d = {} 
+d = dict()
+
+for i in range(1,N+1):
+    f = 3*i+1
+    d[i] = f
+
+print(d)
+"""
