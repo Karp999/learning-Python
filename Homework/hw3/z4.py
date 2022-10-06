@@ -8,18 +8,20 @@ print()
 userN = int(input("Введите число: "))
 print()
 
-def DecimalToBinary (num):
+def DecimalToBinary(userN):
     binaryList = []
-    while num > 0:
-        remainder = num % 2
+    while userN > 0: 
+        remainder = userN % 2
+        userN = userN // 2
         binaryList.append(remainder)
 
     for i in range(len(binaryList)//2): 
-        temp = binaryList [i]
+        k = binaryList [i] # k - временная переменная для пузырькового метода
         binaryList[i] = binaryList[len(binaryList) - i - 1]
-        binaryList[len(binaryList) - i - 1] = temp
-
-    return binaryList
+        binaryList[len(binaryList) - i - 1] = k
+        return binaryList
 
 print("Десятичное число", userN,"в двоичной системе счисления равно:", DecimalToBinary(userN))
 print()
+
+
