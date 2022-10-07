@@ -7,3 +7,18 @@
 - список: ["123", "234", 123, "567"], ищем: "123", ответ: -1
 - список: [], ищем: "123", ответ: -1
 """
+
+print()
+commonList = ["qwe", "ujn", "zxc", "qwe", "ertqwe"]
+def Func (string):
+    count = 0
+    for i in range(len(commonList)):
+        if commonList[i] == string:
+            count +=1
+
+        if count == 2:
+            return i
+    return -1
+
+print(Func(input("Введите символ:")))
+print()
