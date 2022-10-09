@@ -14,3 +14,16 @@ for i in range(len(list)):
     elif int(list[i]) < min:
         min = int(list[i])
 print(max, min)
+
+"""
+str = "2 3 48 56 47 36"
+
+list = str.split()
+for i in range(len(list)):
+list[i]= int (list[i])
+
+
+print(list)
+print( max(list), min(list) )
+
+"""
