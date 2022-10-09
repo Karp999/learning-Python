@@ -9,7 +9,7 @@
 """
 
 print()
-commonList = ["qwe", "ujn", "zxc", "qwe", "ertqwe"]
+commonList = ["qwe", "ujn", "zxc", "qwe", "ertqwe"] #перебирает индекс или результат??
 def Func (string):
     count = 0
     for i in range(len(commonList)):
