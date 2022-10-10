@@ -3,7 +3,7 @@
 
 print()
 initialList = [1, 2, 9, 7, 4, 2, 3, 4, 2, 8, 8, 2, 1]
-print(initialList)
+print("Первоначальный список: ", initialList)
 print()
 
 def NonRecurring(initialList):
