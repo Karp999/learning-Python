@@ -5,9 +5,19 @@
 
 from cmath import pi 
 import numpy
+from decimal import Decimal 
 
-d = numpy.pi
-print("Число Пи = ", round (d,(10**(-1) <= d <= 10**(-10))))
+print()
+pi = numpy.pi
+d = input("Введите число точности для округления числа pi:")
 print()
 
-# попробовать через while или for сократить
+def Accuracy(pi, d):
+    accuracyPi = Decimal(pi)
+    return accuracyPi.quantize(Decimal(d)) 
+    
+print("Число pi с точностью", d, " = ", Accuracy(pi, d))
+print()
+
+
+
