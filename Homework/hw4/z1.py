@@ -7,7 +7,7 @@ from cmath import pi
 import numpy
 
 d = numpy.pi
-print("Число Пи = ", d)
+print("Число Пи = ", round (d,(10**(-1) <= d <= 10**(-10))))
 print()
 
 # попробовать через while или for сократить
