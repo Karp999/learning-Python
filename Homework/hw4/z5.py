@@ -3,16 +3,19 @@
 
 # Не разобралась в четвертой задаче, поэтому не могу воспользоваться 
 # сформированными файлами с многочленами (а хотелось). 
-# Создала дополнительно два файла с предварительно записанными многочленами для попытки решения пятой задачи.
+# Создала дополнительно два файла с предварительно записанными многочленами для попытки решения пятой задачи,
+# написала функцию их открытия, а дальше опять ступор.
 
 firstP = "firstPforz5.txt"
 secondP = "secondPforz5.txt"
 
-def ReadingFiles(firstP, secondP):
-    with open(str(firstP), 'r') as data:
-        pfirst = data.read()
-    with open(str(secondP), 'r') as data:
-        psecond = data.read()
-    return pfirst , psecond
+def ReadingFiles(file):
+    data = open(file, "r")
+    for line in data:
+        print(line)
+    data.close()
 
-print(ReadingFiles(firstP, secondP))
+
+print(ReadingFiles(firstP))
+print(ReadingFiles(secondP))
+
