@@ -3,3 +3,7 @@
 Пример:    
 k=2 => 2*x^2 + 4*x + 5 = 0 или x^2 + 5 = 0 или 10*x^2 = 0
 """
+from random import randint
+
+print()
+

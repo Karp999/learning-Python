@@ -9,7 +9,7 @@ from decimal import Decimal
 
 print()
 pi = numpy.pi
-d = input("Введите число точности для округления числа pi:")
+d = input("Введите число точности для округления числа pi: ")
 print()
 
 def Accuracy(pi, d):
