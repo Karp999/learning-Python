@@ -47,3 +47,64 @@ with open("polynomSecond.txt", "w") as data:
     data.write(polynomSecond)
 
 
+"""
+from random import randint
+
+print()
+k = int(input("Введите степень k: "))
+
+def func(k):
+    file = open("ссылка","w")
+    #list = []
+    a = int(0) #коэффициент,первоначально равен 0
+    for i in range(-k,-1): # от 0 до k 
+        a = randint(0,100)
+        if a != 0:
+            file.write(str(a))
+            file.write("*x^")
+            file.write(str(-i))
+            file.write("+")
+            #print (a, "*x^", -i, "+", end=" " )
+    a = randint(0, 100)
+    if a != 0:
+        file.write(str(a))
+        file.write("*x+")
+    a = randint (0, 100)
+    if a !=0:
+        file.write(str(a))
+    file.write("=0")
+
+    file.close()
+"""
+
+from random import randint
+
+def func(k):
+file = open('G:\\Desktop\\Python\\homework4_py\\file.txt', 'w')
+#list = []
+a=int(0)
+for i in range(-k, -1):
+a=randint(0, 101)
+if a != 0:
+file.write (str(a))
+file.write ('*x^')
+file.write (str(-i))
+file.write ('+')
+#print (a, '*x^', -i ,'+', end='')
+a=randint(0, 101)
+if a != 0:
+file.write (str (a))
+file.write ('*x+')
+a=randint(0, 101)
+if a != 0:
+file.write (str (a))
+file.write ('=0')
+
+
+
+
+file.close()
+
+chislo = int(input ("Введите коэф k:"))
+
+func(chislo)
