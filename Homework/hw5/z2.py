@@ -66,7 +66,7 @@ def MainDescription(field):
             temp = VictoryCheck(field, winningPosition)
             if temp:
                 print(temp)
-                print("Поздравляем, вы победили!:) Игра окончена!")
+                print("Поздравляем, победа за игроком, совершившим крайний ход!:) Игра окончена!")
                 victory = True
                 break
         if count == 9:

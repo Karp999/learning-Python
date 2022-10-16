@@ -51,8 +51,8 @@ def Decoding (decTXT):
             count = " "
     return decode
 
-Encryption(decTXT)
-Decoding(encTXT)
+print("Файл сжат:", Encryption(encTXT))
+print("Файл восстановлен: ", Decoding(decTXT))
 
 
 

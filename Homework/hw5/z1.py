@@ -6,6 +6,13 @@
     a) Добавьте игру против бота    
     b) Подумайте как наделить бота "интеллектом"    
 """
+# пыталась сделать жеребьевку - получилось, однако, не выходит перейти с жеребьевки к обращению к игроку
+# постоянно ошибка вокруг строки:
+# moveFirstPlayer = input(first, "Сколько вы возьмёте конфет? Введите число от 0 до 28: ")
+# TypeError: input expected at most 1 argument, got 2
+# нашла только что выход попробовать через конкатенацию
+
+
 from random import randint
 # Игра человек против человека.
 print()
@@ -19,42 +26,51 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
     if randint(0, 1) == 1:
         first = "Ева"
         second = "Адам"
-        print(first, ", первый ход ваш.", second, ", вы берёте конфеты после первого игрока .")
+        print(first,", первый ход ваш.", second,", вы берёте конфеты после первого игрока .")
     else:
         first = "Адам"
         second = "Ева"
-        print(first, ", первый ход ваш.", second, ", вы берёте конфеты после первого игрока .")
+        print(first,", первый ход ваш.", second,", вы берёте конфеты после первого игрока .")
 
 
     for i in range(candy+1):
-        # Описание ходов Евы.
-        # while take1_candy > candy:
-        #     print("в стопке недостаточно конфет")
-        #     take1_candy = int(input("Первый игрок берет ? конфет: "))
-        moveFirstPlayer = int(input("Сколько вы возьмёте конфет? Введите число от 0 до 28: "))
+        #описание ходов первого игрока. 
+        moveFirstPlayer = int(input(first+", сколько вы возьмёте конфет? Введите число от 0 до 28: "))
         if 0 <= moveFirstPlayer <= 28:
             firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
             i = candy - moveFirstPlayer
-            print ("У Евы", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print()
         if moveFirstPlayer > 28:
-            print("Ева, взять можно от 0 до 28 конфет, повторите ход.")
+            moveFirstPlayer = int(input(first+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
+            firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
+            i = candy - moveFirstPlayer
+            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print()
         if candy == 0:
             firstPlayerCandy = firstPlayerCandy + secondPlayerCandy
-            print("Ева, поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
+            print(first+", поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
+            print()
             return
         
 
-        # Описание ходов Адама.
-        moveSecondPlayer = int(input("Адам, сколько вы возьмёте конфет? Введите число от 0 до 28: "))
+        # Описание ходов второго игрока.
+        moveSecondPlayer = int(input(second+", сколько вы возьмёте конфет? Введите число от 0 до 28: "))
         if 0 <= moveSecondPlayer <= 28:
             secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
             i = candy - moveSecondPlayer
-            print ("У Адама", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print()
         if moveSecondPlayer > 28:
-            print("Адам, взять можно от 0 до 28 конфет, повторите ход.")
+            moveSecondPlayer = int(input(second+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
+            secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
+            i = candy - moveSecondPlayer
+            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            print()
         if candy == 0:
             secondPlayerCandy = firstPlayerCandy + secondPlayerCandy
-            print("Адам, поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
+            print(second+", поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
+            print()
             return
     return
         
