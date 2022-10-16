@@ -31,7 +31,7 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
         # while take1_candy > candy:
         #     print("в стопке недостаточно конфет")
         #     take1_candy = int(input("Первый игрок берет ? конфет: "))
-        moveFirstPlayer = int(input("Ева, сколько вы возьмёте конфет? Введите число от 0 до 28: "))
+        moveFirstPlayer = int(input("Сколько вы возьмёте конфет? Введите число от 0 до 28: "))
         if 0 <= moveFirstPlayer <= 28:
             firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
             i = candy - moveFirstPlayer
