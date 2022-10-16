@@ -2,8 +2,8 @@
 Входные и выходные данные хранятся в отдельных текстовых файлах. """
 
 print()
-encTXT = input("Введите имя файла для сжатия данных: ")
-decTXT = input("Введите имя файла для восстановления данных: ")
+encTXT = "enc.txt"
+decTXT = "dec.txt"
 
 def ReadingFiles(file):
     data = open(file, "r")
