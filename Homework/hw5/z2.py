@@ -61,3 +61,26 @@ def VictoryCheck(field, winningPosition):
             return field[all[0]]
     return False
 
+def MainDescription(field):
+    count = 0
+    victory = False
+    while not victory:
+        Mapping(field)
+        if count % 2 == 0:
+            GameProgress("X")
+        else:
+            GameProgress("O")
+        count += 1
+        if count > 4:
+            temp = VictoryCheck(field, winningPosition)
+            if temp:
+                print(temp)
+                print("Поздравляем, вы победили!:) Игра окончена!")
+                victory = True
+                break
+        if count == 9:
+            print("Поздравляем, ничья!:) Игра окончена!")
+            break
+    Mapping(field)
+                
+MainDescription(field)
