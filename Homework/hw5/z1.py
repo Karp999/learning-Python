@@ -12,7 +12,6 @@
 # TypeError: input expected at most 1 argument, got 2
 # нашла только что выход попробовать через конкатенацию
 
-
 from random import randint
 # Игра человек против человека.
 print()
@@ -38,16 +37,22 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
         moveFirstPlayer = int(input(first+", сколько вы возьмёте конфет? Введите число от 0 до 28: "))
         if 0 <= moveFirstPlayer <= 28:
             firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
-            i = candy - moveFirstPlayer
-            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            candy = candy - moveFirstPlayer
+            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
             print()
         elif moveFirstPlayer > 28:
             moveFirstPlayer = int(input(first+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
             firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
-            i = candy - moveFirstPlayer
-            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            candy = candy - moveFirstPlayer
+            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
             print()
-        if candy == 0:
+        elif moveFirstPlayer > candy:
+            moveFirstPlayer = int(input(first+", в стопке недостаточно конфет. Берите,"+candy+"конфет:"))
+            firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
+            candy = candy - moveFirstPlayer
+            print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
+            print()
+        elif candy == 0:
             firstPlayerCandy = firstPlayerCandy + secondPlayerCandy
             print(first+", поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
             print()
@@ -58,16 +63,22 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
         moveSecondPlayer = int(input(second+", сколько вы возьмёте конфет? Введите число от 0 до 28: "))
         if 0 <= moveSecondPlayer <= 28:
             secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
-            i = candy - moveSecondPlayer
-            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            candy = candy - moveSecondPlayer
+            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
             print()
         elif moveSecondPlayer > 28:
             moveSecondPlayer = int(input(second+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
             secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
-            i = candy - moveSecondPlayer
-            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
+            candy = candy - moveSecondPlayer
+            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
             print()
-        if candy == 0:
+        elif moveSecondPlayer > candy:
+            moveSecondPlayer = int(input(first+", в стопке недостаточно конфет. Берите,"+candy+"конфет:"))
+            secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
+            candy = candy - moveSecondPlayer
+            print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", candy,"конфет.")
+            print()
+        elif candy == 0:
             secondPlayerCandy = firstPlayerCandy + secondPlayerCandy
             print(second+", поздравляем, вы победили и все конфеты ваши!:) Игра окончена!")
             print()
