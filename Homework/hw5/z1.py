@@ -41,7 +41,7 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
             i = candy - moveFirstPlayer
             print (first+" имеет", firstPlayerCandy, "конфет. В игре осталось", i,"конфет.")
             print()
-        if moveFirstPlayer > 28:
+        elif moveFirstPlayer > 28:
             moveFirstPlayer = int(input(first+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
             firstPlayerCandy = firstPlayerCandy + moveFirstPlayer
             i = candy - moveFirstPlayer
@@ -61,7 +61,7 @@ def GameProgress(firstPlayerCandy, secondPlayerCandy):
             i = candy - moveSecondPlayer
             print (second+" имеет", secondPlayerCandy, "конфет. В игре осталось", i,"конфет.")
             print()
-        if moveSecondPlayer > 28:
+        elif moveSecondPlayer > 28:
             moveSecondPlayer = int(input(second+", взять можно от 0 до 28 конфет, повторите ход. Сколько вы возьмёте конфет? "))
             secondPlayerCandy = secondPlayerCandy + moveSecondPlayer
             i = candy - moveSecondPlayer
