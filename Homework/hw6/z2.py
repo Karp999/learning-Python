@@ -21,8 +21,8 @@
 print()
 userN = int(input("Введите число N: "))
 def Factorial(userN): 
-    factorialUserN = (lambda i: 1 if i == 0 else i * factorialUserN(i - 1))
-    commonList = list(factorialUserN(i) for i in range(1, userN + 1))
+    factorialUserN = (lambda i: 1 if i == 0 else i * factorialUserN(i - 1)) # lambda
+    commonList = list(factorialUserN(i) for i in range(1, userN + 1)) # List Comprehension
     return commonList
     
 print("Произведение чисел от 1 до N равняется:", Factorial(userN))

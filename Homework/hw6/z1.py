@@ -29,9 +29,9 @@
 # ПОСЛЕ:
 from random import randint
 sizeList = int(input("Задайте размер списка: "))
-initialList  = [randint(1, 10) for i in range(sizeList)] 
+initialList  = [randint(1, 10) for i in range(sizeList)] # List Comprehension
 print(initialList)
-oddNums = [ initialList[i] for i in range (sizeList) if i % 2 == 1 ]
+oddNums = [ initialList[i] for i in range (sizeList) if i % 2 == 1 ] # List Comprehension
 print(oddNums) 
 sumOddNums = 0 
 for i in range (len(oddNums)): #хотела сумму расписать(пример ниже), пробовала по разному,
@@ -45,6 +45,7 @@ print("Сумма элементов списка на нечётных пози
 # initialList  = [randint(1, 10) for i in range(sizeList)] 
 # print(initialList)
 # print()
+"""попытка сделать через filter() и lambda, но выдает нечетные элементы,а не их позиции"""
 # oddNums = list(filter(lambda i: i % 2 != 0 , initialList)) 
 # sumOddNums = [(int(oddNums[i])) for i in range (len(int(oddNums+1))) (int(oddNums[i])) + (int(oddNums[i]))]
 # print("Сумма элементов списка на нечётных позициях:", sumOddNums)

@@ -32,10 +32,10 @@ from random import randint
 print()
 sizeList = int(input("Задайте размер списка: "))
 print()
-initialList  = [randint(1, 9) for i in range(sizeList)]
+initialList  = [randint(1, 9) for i in range(sizeList)] # List Comprehension
 print(initialList)
 print()
-# взяла задачу для тренировки List Comprehension
+# List Comprehension
 resultList = [initialList[i]*initialList[len(initialList)-1-i] for i in range(len(initialList)) if i <= len(initialList)-1-i]
 print ("Произведение пар чисел списка:", resultList)
 print()
