@@ -35,6 +35,7 @@ print()
 initialList  = [randint(1, 9) for i in range(sizeList)]
 print(initialList)
 print()
+# взяла задачу для тренировки List Comprehension
 resultList = [initialList[i]*initialList[len(initialList)-1-i] for i in range(len(initialList)) if i <= len(initialList)-1-i]
 print ("Произведение пар чисел списка:", resultList)
 print()
