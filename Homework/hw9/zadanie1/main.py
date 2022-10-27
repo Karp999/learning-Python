@@ -1,8 +1,8 @@
 # Создайте программу для игры в "Крестики-нолики" при помощи виртуального окружения и PIP
 
-""" Задача 2 . Создайте программу для игры в "Крестики-нолики"."""
-
 from random import randint
+# import read
+import emoji
 
 # ПРИВЕТСТВИЕ
 print()
@@ -15,6 +15,7 @@ print()
 # ОПИСАНИЕ ПОЛЯ
 # для удобства пользования полем прономеруем каждую клетку. Клеток 9, создадим лист из 9 элементов по возрастанию.
 field = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 # отображение поля
 def Mapping(field):
     print("-" * 13)
@@ -39,7 +40,7 @@ def GameProgress(first):
             print("Вы ввели некорректное значение. Попробуйте еще раз.")
             continue
         if 9 >= movePlayer >= 1:
-            if(str(field[movePlayer - 1]) not in ("XO")):
+            if(str(field[movePlayer - 1]) not in ("🌍🚀")):
                 field[movePlayer - 1] = first
                 value = True
             else:
@@ -60,9 +61,9 @@ def MainDescription(field):
     while not victory:
         Mapping(field)
         if count % 2 == 0:
-            GameProgress("X")
+            GameProgress(emoji.emojize('🌍'))
         else:
-            GameProgress("O")
+            GameProgress(emoji.emojize('🚀'))
         count += 1
         if count > 4:
             temp = VictoryCheck(field, winningPosition)
@@ -77,3 +78,5 @@ def MainDescription(field):
     Mapping(field)
                 
 MainDescription(field)
+
+
