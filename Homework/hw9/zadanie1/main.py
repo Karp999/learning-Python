@@ -3,6 +3,7 @@
 from random import randint
 # import read
 import emoji
+import read
 
 # ПРИВЕТСТВИЕ
 print()
@@ -55,15 +56,19 @@ def VictoryCheck(field, winningPosition):
             return field[all[0]]
     return False
 
-def MainDescription(field):
+def MainDescription(game, field):
     count = 0
     victory = False
     while not victory:
         Mapping(field)
         if count % 2 == 0:
-            GameProgress(emoji.emojize('🌍'))
+             GameProgress(game["cross"])
         else:
-            GameProgress(emoji.emojize('🚀'))
+             GameProgress(game["zero"])
+        # вариант с emoji:
+        #     GameProgress(emoji.emojize('🌍'))
+        # else:
+        #     GameProgress(emoji.emojize('🚀'))
         count += 1
         if count > 4:
             temp = VictoryCheck(field, winningPosition)
@@ -75,8 +80,9 @@ def MainDescription(field):
         if count == 9:
             print("Поздравляем, ничья!:) Игра окончена!")
             break
-    Mapping(field)
+    Mapping(game, field)
                 
-MainDescription(field)
+game = read.getInfo()
+MainDescription(game, field)
 
 

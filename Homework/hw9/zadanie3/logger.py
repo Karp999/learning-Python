@@ -1,15 +1,7 @@
-from datetime import datetime as dt
-import logging
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-def info_logger(info):
-    time = dt.now().strftime('%D_%H:%M')
-    with open ('phonebook_log.csv', 'a', encoding="utf-8") as file:
-        file.write('{};phonebook;{}\n'
-                    .format(time, info))
-
-logging.basicConfig(
-    level=logging.INFO,
-    filename='phonebook_log.csv',
-    format='[%(asctime)s] [%(levelname)s] [%(module)s] [%(funcName)s: %(lineno)d] => %(message)s',
-    datefmt='%d.%m.%Y %H:%M:%S ',
-)
+def log(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    file = open ('log-Phonebook-bot.csv', 'a')
+    file.write(f'{update.effective_user.first_name}, {update.effective_user.id}, {update.message.text} \n')
+    file.close()
