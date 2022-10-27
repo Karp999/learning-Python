@@ -5,13 +5,13 @@ def init(x, y):
     b = y
     
 def sum():
-    return a + b
+    return a+b
 
 def sub():
-    return a - b
+    return a-b
 
 def div():
-    return a / b
+    return a/b
 
 def prod():
-    return a * b 
+    return a*b
