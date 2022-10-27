@@ -14,7 +14,7 @@ async def SumCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     items = values.split()
     x = int(items[1])
     y = int(items[2])
-    await update.message.reply_text(f'Сумма равна: {x}+{y}={x+y}')
+    await update.message.reply_text(f'Сумма равна: {x} + {y} = {x+y}')
 
 async def SubCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -23,7 +23,7 @@ async def SubCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     items = values.split()
     x = int(items[1])
     y = int(items[2])
-    await update.message.reply_text(f'Разность {x} и {y} равна {x-y}')
+    await update.message.reply_text(f'Разность равна: {x} - {y} = {x-y}')
 
 async def DivCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -32,7 +32,7 @@ async def DivCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     items = values.split()
     x = int(items[1])
     y = int(items[2])
-    await update.message.reply_text(f'Частное {x} и {y} равно {x/y}')
+    await update.message.reply_text(f'Частное равно: {x} / {y} = {x/y}')
 
 async def ProdCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -41,10 +41,10 @@ async def ProdCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     items = values.split()
     x = int(items[1])
     y = int(items[2])
-    await update.message.reply_text(f'Произведение {x} и {y} равно {x*y}')
+    await update.message.reply_text(f'Произведение равно: {x} * {y} = {x*y}')
 
 
 async def HelpCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'/hi\n/sum\n/sub\n/div\n/prod\n/help\n') #примеры вызова команд
+    await update.message.reply_text(f'/hi - приветствие\n/sum - для нахождения суммы введите вместе с операцией два числа через пробел\n/sub для нахождения разности введите вместе с операцией два числа через пробел\n/div - для нахождения частного введите вместе с операцией два числа через пробел\n/prod - для нахождения произведения введите вместе с операцией два числа через пробел\n/help - помощь\n') #примеры вызова команд
 
