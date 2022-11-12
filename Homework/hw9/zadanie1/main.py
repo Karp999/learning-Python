@@ -1,8 +1,9 @@
 # Создайте программу для игры в "Крестики-нолики" при помощи виртуального окружения и PIP
 
-""" Задача 2 . Создайте программу для игры в "Крестики-нолики"."""
-
 from random import randint
+# import read
+import emoji
+import read
 
 # ПРИВЕТСТВИЕ
 print()
@@ -15,6 +16,7 @@ print()
 # ОПИСАНИЕ ПОЛЯ
 # для удобства пользования полем прономеруем каждую клетку. Клеток 9, создадим лист из 9 элементов по возрастанию.
 field = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 # отображение поля
 def Mapping(field):
     print("-" * 13)
@@ -39,7 +41,7 @@ def GameProgress(first):
             print("Вы ввели некорректное значение. Попробуйте еще раз.")
             continue
         if 9 >= movePlayer >= 1:
-            if(str(field[movePlayer - 1]) not in ("XO")):
+            if(str(field[movePlayer - 1]) not in ("🌍🚀")):
                 field[movePlayer - 1] = first
                 value = True
             else:
@@ -54,15 +56,19 @@ def VictoryCheck(field, winningPosition):
             return field[all[0]]
     return False
 
-def MainDescription(field):
+def MainDescription(game, field):
     count = 0
     victory = False
     while not victory:
         Mapping(field)
         if count % 2 == 0:
-            GameProgress("X")
+             GameProgress(game["cross"])
         else:
-            GameProgress("O")
+             GameProgress(game["zero"])
+        # вариант с emoji:
+        #     GameProgress(emoji.emojize('🌍'))
+        # else:
+        #     GameProgress(emoji.emojize('🚀'))
         count += 1
         if count > 4:
             temp = VictoryCheck(field, winningPosition)
@@ -74,6 +80,9 @@ def MainDescription(field):
         if count == 9:
             print("Поздравляем, ничья!:) Игра окончена!")
             break
-    Mapping(field)
+    Mapping(game, field)
                 
-MainDescription(field)
+game = read.getInfo()
+MainDescription(game, field)
+
+
