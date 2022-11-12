@@ -6,7 +6,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from bot_commands import *
 
-app = ApplicationBuilder().token("5653762938:AAEX45-Z4hWyZmDCje6C2wFkJFowBxuYz_M").build()
+app = ApplicationBuilder().token("см бот").build()
 
 app.add_handler(CommandHandler("hi", BonjourCommand)) #название команды
 app.add_handler(CommandHandler("sum", SumCommand)) #вводить название команды и два числа (остальные операции аналогично)

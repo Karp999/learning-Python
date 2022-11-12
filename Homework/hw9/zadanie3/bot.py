@@ -5,7 +5,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-app = ApplicationBuilder().token("5799576275:AAENLVLN4Be-HJfdNVqRjqQyOtFNbCEGQLc").build()
+app = ApplicationBuilder().token("см бот").build()
 
 app.add_handler(CommandHandler("phonebook", hello))
 app.add_handler(CommandHandler("phonebook", hello))
