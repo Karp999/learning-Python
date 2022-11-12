@@ -3,6 +3,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from logger import *
 import emoji 
 from random import randint
+
 #команда приветствия
 async def BonjourCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -10,7 +11,7 @@ async def BonjourCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
 #команда описания условий игры
 async def StartCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f"Вы играете в игру '2021 конфета'🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊\n\nДля начала игры нажмите на /game\nДля возврата в меню чата нажмите => /help") #что пишет в терминале
+    await update.message.reply_text(f"Вы играете в игру '2021 конфета'🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊\n\nДля начала игры нажмите => /game\nДля возврата в меню чата нажмите => /help") #что пишет в терминале
 #команда начала игры + процесс
 async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -32,10 +33,10 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-                await update.message.reply_text("Бот берет", candy,"конфет 🍬.")
-                botSumCandy = botSumCandy + botMove
-                candy = candy - botMove
-                await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+            await update.message.reply_text("Бот берет", candy,"конфет 🍬.")
+            botSumCandy = botSumCandy + botMove
+            candy = candy - botMove
+            await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
 
             if candy == 0:
                 botSumCandy = botSumCandy + userSumCandy
@@ -84,10 +85,10 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-                await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
-                botSumCandy = botSumCandy + botMove
-                candy = candy - botMove
-                await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+            await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
+            botSumCandy = botSumCandy + botMove
+            candy = candy - botMove
+            await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
 
             if candy == 0:
                 botSumCandy = botSumCandy + userSumCandy
