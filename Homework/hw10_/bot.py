@@ -4,8 +4,10 @@ from bot_commands import *
 
 app = ApplicationBuilder().token("5637820658:AAEF_Tgf2qzzWgAKJwfynRgiCxcOnaPDN34").build()
 
-app.add_handler(CommandHandler("hi", BonjourCommand)) #название команды
-app.add_handler(CommandHandler("sum", SumCommand)) #вводить название команды и два числа (остальные операции аналогично)
+
+app.add_handler(CommandHandler("hi", BonjourCommand)) #команда приветствия
+app.add_handler(CommandHandler("start", StartCommand)) #команда начала игры
+app.add_handler(CommandHandler("lottery", LotteryCommand)) #команда жеребьёвки
 app.add_handler(CommandHandler("sub", SubCommand)) #название команды
 app.add_handler(CommandHandler("div", DivCommand)) #название команды
 app.add_handler(CommandHandler("prod", ProdCommand)) #название команды
