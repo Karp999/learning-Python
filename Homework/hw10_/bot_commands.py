@@ -6,11 +6,11 @@ from random import randint
 #команда приветствия
 async def BonjourCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'Приветствуем, {update.effective_user.first_name} !😊\nДля отображения меню чата нажмите на => /help ') #что пишет в терминале
+    await update.message.reply_text(f"Приветствуем, {update.effective_user.first_name} !😊\nДля отображения меню чата нажмите => /help ") #что пишет в терминале
 #команда описания условий игры
 async def StartCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'Вы играете в игру "2021 конфета"🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊\n\nДля начала игры нажмите на /game\nДля возврата в меню чата нажмите => /help') #что пишет в терминале
+    await update.message.reply_text(f"Вы играете в игру '2021 конфета'🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊\n\nДля начала игры нажмите на /game\nДля возврата в меню чата нажмите => /help") #что пишет в терминале
 #команда начала игры + процесс
 async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -24,18 +24,18 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
         second = update.effective_user.first_name
         await update.message.reply_text("🤖 Первым ходит "+first+", а затем - "+second)
 
-    candy = 2021
     await update.message.reply_text("Игра началась, удачи!🤗")
 
+    candy = 2021
     if second == update.effective_user.first_name:
         while candy > 0: 
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-            await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
-            botSumCandy = botSumCandy + botMove
-            candy = candy - botMove
-            await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+                await update.message.reply_text("Бот берет", candy,"конфет 🍬.")
+                botSumCandy = botSumCandy + botMove
+                candy = candy - botMove
+                await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
 
             if candy == 0:
                 botSumCandy = botSumCandy + userSumCandy
@@ -84,10 +84,10 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-            await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
-            botSumCandy = botSumCandy + botMove
-            candy = candy - botMove
-            await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+                await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
+                botSumCandy = botSumCandy + botMove
+                candy = candy - botMove
+                await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
 
             if candy == 0:
                 botSumCandy = botSumCandy + userSumCandy
@@ -98,5 +98,5 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
 #команда помощи - меню бота
 async def HelpCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'МЕНЮ БОТА:\n\n/hi - приветствие 😊\n/start - описание условий игры 📑\n/game - начало игры "2021 конфета"🍬\n/help - помощь 🤝\n') #меню бота
+    await update.message.reply_text(f"МЕНЮ БОТА:\n\n/hi - приветствие 😊\n/start - описание условий игры 📑\n/game - начало игры '2021 конфета'🍬\n/help - помощь 🤝\n") #меню бота
 
