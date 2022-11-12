@@ -6,11 +6,11 @@ from random import randint
 #команда приветствия
 async def BonjourCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'Приветствуем, {update.effective_user.first_name} !😊\nДля отображения меню чата введите команду: /help ') #что пишет в терминале
+    await update.message.reply_text(f'Приветствуем, {update.effective_user.first_name} !😊\nДля отображения меню чата нажмите на => /help ') #что пишет в терминале
 #команда описания условий игры
 async def StartCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'Вы играете в игру "2021 конфета"🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊') #что пишет в терминале
+    await update.message.reply_text(f'Вы играете в игру "2021 конфета"🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊\n\nДля начала игры нажмите на /game\nДля возврата в меню чата нажмите => /help') #что пишет в терминале
 #команда начала игры + процесс
 async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
@@ -32,7 +32,7 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-            await update.message.reply_text("Бот берет"+candy+"конфет 🍬.")
+            await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
             botSumCandy = botSumCandy + botMove
             candy = candy - botMove
             await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
@@ -41,41 +41,50 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 botSumCandy = botSumCandy + userSumCandy
                 await update.message.reply_text("🤖 Бот победил и забирает", botSumCandy, "конфет!\nИгра окончена! 🎉")
                 return
-               
-            userMove = int(input(update.effective_user.first_name+", сколько вы возьмёте конфет?🍬\nВведите число от 0 до 28: "))
+
+
+            await update.message.reply_text(update.effective_user.first_name+", сколько вы возьмёте конфет?🍬\nВведите число от 0 до 28: ") 
+            userMove = int(update.message.text)
             while userMove <= 0 or userMove > 28:
-                userMove = int(input("❗ "+update.effective_user.first_name+", взять можно от 0 до 28 конфет, повторите ход.\nСколько вы возьмёте конфет? "))
+                await update.message.reply_text("❗ "+update.effective_user.first_name+", взять можно от 0 до 28 конфет, повторите ход.\nСколько вы возьмёте конфет? ")
+                userMove = int(update.message.text)
             while userMove > candy:
-                userMove = int(input("❗ "+update.effective_user.first_name+", в стопке недостаточно конфет, повторите ход.\nВзять можно от 0 до 28 единиц.\nСколько вы возьмёте конфет? "))
+                await update.message.reply_text("❗ "+update.effective_user.first_name+", в стопке недостаточно конфет, повторите ход.\nВзять можно от 0 до 28 единиц.\nСколько вы возьмёте конфет? ")
+                userMove = int(update.message.text)
             else:
                 if 0 <= userMove <= 28:
                     userSumCandy = userMove + userSumCandy
                     candy = candy-userMove
-                    print (update.effective_user.first_name+", у вас", userSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+                    await update.message.reply_text(update.effective_user.first_name+", у вас", userSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
                     if candy == 0:
                         userSumCandy = userSumCandy + botSumCandy
-                        print(update.effective_user.first_name+", поздравляем, вы победили и все конфеты ваши!🤗 Игра окончена! 🎉")
+                        await update.message.reply_text(update.effective_user.first_name+", поздравляем, вы победили и все конфеты ваши!🤗 Игра окончена! 🎉")
                         return
+
     else:
         while candy > 0: 
-            userMove = int(input(update.effective_user.first_name+", сколько вы возьмёте конфет?🍬\nВведите число от 0 до 28: "))
+            await update.message.reply_text(update.effective_user.first_name+", сколько вы возьмёте конфет?🍬\nВведите число от 0 до 28: ") 
+            userMove = int(update.message.text)
             while userMove <= 0 or userMove > 28:
-                userMove = int(input("❗ "+update.effective_user.first_name+", взять можно от 0 до 28 конфет, повторите ход.\nСколько вы возьмёте конфет? "))
+                await update.message.reply_text("❗ "+update.effective_user.first_name+", взять можно от 0 до 28 конфет, повторите ход.\nСколько вы возьмёте конфет? ")
+                userMove = int(update.message.text)
             while userMove > candy:
-                userMove = int(input("❗ "+update.effective_user.first_name+", в стопке недостаточно конфет, повторите ход.\nВзять можно от 0 до 28 единиц.\nСколько вы возьмёте конфет? "))
+                await update.message.reply_text("❗ "+update.effective_user.first_name+", в стопке недостаточно конфет, повторите ход.\nВзять можно от 0 до 28 единиц.\nСколько вы возьмёте конфет? ")
+                userMove = int(update.message.text)
             else:
                 if 0 <= userMove <= 28:
                     userSumCandy = userMove + userSumCandy
                     candy = candy-userMove
-                    print (update.effective_user.first_name+", у вас", userSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
+                    await update.message.reply_text(update.effective_user.first_name+", у вас", userSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
                     if candy == 0:
                         userSumCandy = userSumCandy + botSumCandy
-                        print(update.effective_user.first_name+", поздравляем, вы победили и все конфеты ваши!🤗 Игра окончена! 🎉")
+                        await update.message.reply_text(update.effective_user.first_name+", поздравляем, вы победили и все конфеты ваши!🤗 Игра окончена! 🎉")
                         return
+
             botMove = randint(0, 28)
             if botMove > candy:
                 botMove = candy
-            await update.message.reply_text("Бот берет"+candy+"конфет 🍬.")
+            await update.message.reply_text("Бот берет",candy,"конфет 🍬.")
             botSumCandy = botSumCandy + botMove
             candy = candy - botMove
             await update.message.reply_text("Бот имеет", botSumCandy, "конфет.\nВ игре осталось", candy,"конфет 🍬.")
@@ -84,8 +93,8 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 botSumCandy = botSumCandy + userSumCandy
                 await update.message.reply_text("🤖 Бот победил и забирает", botSumCandy, "конфет!\nИгра окончена! 🎉")
                 return
-    return
-    
+
+
 #команда помощи - меню бота
 async def HelpCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
