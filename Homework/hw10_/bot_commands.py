@@ -3,15 +3,15 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from logger import *
 import emoji 
 from random import randint
-
+#команда приветствия
 async def BonjourCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'Приветствуем, {update.effective_user.first_name} !😊\nДля отображения меню чата введите команду: /help ') #что пишет в терминале
-
+#команда описания условий игры
 async def StartCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'Вы играете в игру "2021 конфета"🍬\nПосле жеребьёвки Вы и Бот по очереди забираете не более 28 конфет.\nПобеждает тот, кто сделает крайний ход.😊') #что пишет в терминале
-
+#команда начала игры + процесс
 async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     a = randint(0, 1)
@@ -85,9 +85,8 @@ async def GameCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await update.message.reply_text("🤖 Бот победил и забирает", botSumCandy, "конфет!\nИгра окончена! 🎉")
                 return
     return
-
-
-
+    
+#команда помощи - меню бота
 async def HelpCommand(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'МЕНЮ БОТА:\n\n/hi - приветствие 😊\n/start - описание условий игры 📑\n/game - начало игры "2021 конфета"🍬\n/help - помощь 🤝\n') #меню бота
